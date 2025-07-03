@@ -1,4 +1,5 @@
 import { useCart } from './CartContext';
+import Image from 'next/image';
 
 interface CartSliderProps {
   isOpen: boolean;
@@ -51,10 +52,14 @@ export default function CartSlider({ isOpen, onClose }: CartSliderProps) {
                 key={item.id}
                 className="flex items-center gap-4 mb-4 border-b pb-2"
               >
-                <img
-                  src={item.image}
+                <Image
+             src={item.image}
                   alt={item.name}
-                  className="w-16 h-16 object-cover rounded-xl"
+                  width={64}
+                  height={64}
+                  sizes="64px"
+                  className="object-cover rounded-xl"
+                  priority={false}
                 />
                 <div className="flex-1">
                   <h3 className="text-sm font-bold text-black">{item.name}</h3>

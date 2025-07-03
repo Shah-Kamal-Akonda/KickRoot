@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Product } from '../data/types';
+import Image from 'next/image';
 
 interface ProductCardProps {
   product: Product;
@@ -12,10 +13,14 @@ export default function ProductCard({ product }: ProductCardProps) {
     <Link href={`/products/${product.id}`} className="block">
       <div className="bg-white rounded-3xl md:p-6 shadow-sm overflow-hidden transition duration-500 hover:shadow-lg hover:border border-green-600 cursor-pointer flex flex-col max-w-[120px] sm:max-w-[380px]">
         <div className="w-full aspect-square relative">
-          <img
-            src={product.images[0]} // Use first image
+          <Image
+             src={product.images[0]}
             alt={product.name}
+            width={380} // Max width for larger screens; scales down on mobile
+            height={380} // Square aspect ratio
+            sizes="(max-width: 640px) 120px, 380px"
             className="w-full h-full object-cover"
+            priority={false}
           />
         </div>
         <div className="p-1 sm:p-3 flex flex-col flex-grow">

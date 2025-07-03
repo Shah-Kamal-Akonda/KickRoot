@@ -8,6 +8,7 @@ import { productCategories } from '../../../../data/product';
 
 import { useCart } from '../../../../components/CartContext';
 import CartSlider from '../../../../components/CartSlider';
+import Image from 'next/image';
 
 export default function ProductPage({ params }: { params: Promise<{ productId: string }> }) {
   const { productId } = use(params);
@@ -95,10 +96,14 @@ export default function ProductPage({ params }: { params: Promise<{ productId: s
           {/* Left: Image Section */}
           <div className="w-full sm:w-1/2 flex flex-col">
             <div className="w-[240px] h-[154px] mx-auto">
-              <img
-                src={mainImage}
+              <Image
+               src={mainImage}
                 alt={product.name}
+                width={240}
+                height={154}
+                sizes="240px"
                 className="w-full h-full object-cover rounded-3xl"
+                priority
               />
             </div>
             <div className="flex gap-2 mt-4 justify-center">
