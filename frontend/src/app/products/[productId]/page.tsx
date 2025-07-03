@@ -115,7 +115,7 @@ export default function ProductPage({ params }: { params: Promise<{ productId: s
                     mainImage === image ? 'border-blue-600' : 'border-gray-200'
                   } hover:border-blue-400 transition duration-300`}
                 >
-                  <img
+                  <Image
                     src={image}
                     alt={`${product.name} thumbnail ${index + 1}`}
                     className="w-full h-full object-cover"
