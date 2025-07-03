@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 
 import { productCategories } from '../../../../data/product';
 
-import { Product } from '../../../../data/types';
+
 import { useCart } from '../../../../components/CartContext';
 import CartSlider from '../../../../components/CartSlider';
 
